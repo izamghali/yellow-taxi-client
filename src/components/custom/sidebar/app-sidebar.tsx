@@ -1,57 +1,16 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
-import { PiFunnel, PiFunnelBold } from "react-icons/pi";
-
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-} from "@/components/ui/sidebar"
+import { PiFunnel } from "react-icons/pi";
 import FormSidebar from "./form-sidebar"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { Separator } from "@/components/ui/separator";
 
-// Menu items.
-const items = [
-  {
-    title: "Home",
-    url: "#",
-    icon: Home,
-  },
-  {
-    title: "Inbox",
-    url: "#",
-    icon: Inbox,
-  },
-  {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: Search,
-  },
-  {
-    title: "Settings",
-    url: "#",
-    icon: Settings,
-  },
-]
+interface AppSidebarProps {
+    children: React.ReactNode;
+}
 
-export function AppSidebar() {
-
-
+export function AppSidebar({ children }: AppSidebarProps) {
 
     return (
-        <Sidebar collapsible="none">
-            <SidebarContent className="p-2">
-            <SidebarGroup>
+        <div className="flex border border-blue-400 h-screen">
+            <div className="min-w-[320px] p-4 border border-black">
                 <h1 className="font-bold text-xl mb-12">Yellow Taxi Analytics Dashboard</h1>
                 <div className="flex justify-between items-center">
                     <h2 className="font-semibold text-xl text-black">Trips</h2>
@@ -69,25 +28,10 @@ export function AppSidebar() {
                 <div>
                     <span className="text-sm text-muted-foreground">Showing 1-10 of 1000</span>
                 </div>
-
-                {/* <SidebarGroupLabel>Application</SidebarGroupLabel> */}
-                {/* <SidebarGroupContent>
-                    <SidebarMenu>
-                    {items.map((item) => (
-                        <SidebarMenuItem key={item.title}>
-                        <SidebarMenuButton asChild>
-                            <a href={item.url}>
-                            <item.icon />
-                            <span>{item.title}</span>
-                            </a>
-                        </SidebarMenuButton>
-                        </SidebarMenuItem>
-                    ))}
-                    </SidebarMenu>
-                </SidebarGroupContent> */}
-
-                </SidebarGroup>
-            </SidebarContent>
-        </Sidebar>
+            </div>
+            <div className="border border-red-400 w-full">
+                { children }
+            </div>
+        </div>
     )
 }

@@ -2,9 +2,9 @@
 import Map from 'react-map-gl/mapbox';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-interface MapBoxMapProps {
-    sidebarOpen: boolean;
-}
+// interface MapBoxMapProps {
+//     sidebarOpen: boolean;
+// }
 
 export default function MapBoxMap() {
     return (
